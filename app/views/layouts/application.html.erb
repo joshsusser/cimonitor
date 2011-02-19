@@ -24,43 +24,40 @@
         <%= link_to(image_tag(logo), '/') %>
       </div>
     </div>
-
-    <div style="clear:both"></div>
 <% end %>
-
-<div class="page">
-
-  <div id="top_right">
-    <div class="smaller_text">
-      <i>As of <%= Time.now.strftime('%I:%M%p %Z %m/%d/%Y') %></i>
-      <% if current_user.nil? %>
-          | <%= link_to "Log in", AuthConfig.openid? ? new_openid_path : login_path %>
-      <% end %>
-      <br/>
-      <% if params[:controller] == "ci_monitor" %>
-        <%= link_to_function "refresh rate", "document.getElementById('refreshInterval').style.display='inline'; this.style.display='none'" %>
-        <%= select_tag "refreshInterval",
-                           options_for_select([["15 seconds", "15"], ["30 seconds", "30"], ["60 seconds", "60"], ["5 minutes", "300"], ["Never", "0"]]),
-                           :onchange => "onChangeRefreshTimeoutDropdown()", :style => "display: none" %>
-        <%= javascript_tag do %>
+<div id="top_right">
+  <div class="smaller_text">
+    <i>As of <%= Time.now.strftime('%I:%M%p %Z %m/%d/%Y') %></i>
+    <% if current_user.nil? %>
+        | <%= link_to "Log in", AuthConfig.openid? ? new_openid_path : login_path %>
+    <% end %>
+    <br/>
+    <% if params[:controller] == "ci_monitor" %>
+      <%= link_to_function "refresh rate", "document.getElementById('refreshInterval').style.display='inline'; this.style.display='none'" %>
+      <%= select_tag "refreshInterval",
+                         options_for_select([["15 seconds", "15"], ["30 seconds", "30"], ["60 seconds", "60"], ["5 minutes", "300"], ["Never", "0"]]),
+                         :onchange => "onChangeRefreshTimeoutDropdown()", :style => "display: none" %>
+      <%= javascript_tag do %>
         setRefreshIntervalDropdown();
       <% end %>
-      <% end %>
-    </div>
-    <% if !current_user.nil? %>
-        <div class="smaller_text">
-          Hello, <%= current_user.login %>
-          <br>
-          <%= link_to "Projects", projects_path %> |
-          <% if AuthConfig.password? %>
-            <%= link_to "New user", new_user_path %> | 
-          <% end %>
-          <%= link_to "Log out", logout_path %>
-        </div>
     <% end %>
-
   </div>
+  <% if !current_user.nil? %>
+    <div class="smaller_text">
+      Hello, <%= current_user.login %>
+      <br>
+      <%= link_to "Projects", projects_path %> |
+      <% if AuthConfig.password? %>
+        <%= link_to "New user", new_user_path %> | 
+      <% end %>
+      <%= link_to "Log out", logout_path %>
+    </div>
+  <% end %>
+</div>
 
+
+
+<div class="page">
   <% if flash[:error] %>
       <div id="flash_error">
         <%= flash[:error] %>

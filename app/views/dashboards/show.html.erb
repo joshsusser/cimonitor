@@ -7,12 +7,23 @@
     </div>
 <% end %>
 
-<div class="projects"
-     <% unless @messages.empty? %>style="width:80%"
-     <% end %> >
-  <% for project in @projects %>
-      <div class="project<%= project.is_a?(AggregateProject) ? ' aggregate' : ''%>">
-        <%= render :partial => 'dashboards/project', :locals => {:project => project} %>
-      </div>
-  <% end %>
+
+<div class="projects_wrapper">
+  <div class="everything">
+    <ul>
+      <% @projects.each do |p| %>
+        <li>
+          <div class="project_dots"><%= render :partial => 'dashboards/history', :locals => {:project => p} %></div>
+          <div class="project_title"><%= p.name %></div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="projects" <%= 'style="width:80%"' unless @messages.empty? %> >
+    <ul>
+      <% @red_projects.each do |project| %>
+        <li class="<%= project.red? ? 'red' : 'blue' %>"><%= project.name %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>

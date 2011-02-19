@@ -9,6 +9,7 @@ class DashboardsController < ApplicationController
       @projects += AggregateProject.with_projects.flatten
       @projects = @projects.sort{|project_a, project_b| project_a.name <=> project_b.name}
     end
+    @red_projects = @projects.reject {|p| p.green?}.sort_by {|p| p.online? ? 1 : 0}
 
     @messages = Message.all
 

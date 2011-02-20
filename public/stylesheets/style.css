@@ -250,8 +250,9 @@ Form Errors
 
 /* new stuff */
 .page {
+  font-size: 10px;
   position: absolute;
-  top: 56px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -259,34 +260,87 @@ Form Errors
 
 .projects {
   overflow: hidden;
-  margin-left: 400px;
+  margin-left: 30em;
 }
 
-.everything {
-  background-color: #ddd;
+.project_map {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 400px;
+  width: 30em;
 }
 
-.everything ul {
+.project_map ul {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;  
   list-style: none;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
-.everything li {
+.project_map li {
+  display: block;
+  -webkit-box-flex: 1;
+  position: relative;
   overflow: hidden;
 }
 
-.everything li .project_dots {
-  float: left;
-  width: 150px;
+.project_map li:before {
+  content: '';
+  position: absolute;
+  height: 50%;
+  top: 0;
+  left: 0em;
+  right: 0em;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0.1)));
+  -webkit-border-bottom-left-radius: 2em;  
+  -webkit-border-bottom-right-radius: 2em;  
 }
 
-.everything .sparkline {
-    width: 100%;
+.project_map li + li {
+  border-top: 1px solid black;
+}
+
+.project_map .green {
+/*  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4aff59), to(#103713), color-stop(50%, #103713));*/
+  background: #33aa33;
+}
+
+.project_map .red {
+/*  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff2a40), to(#450c12), color-stop(50%, #450c12));*/
+  background: #aa3333;
+}
+
+.project_map .blue {
+/*  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#85a5cc), to(#4a6491), color-stop(50%, #4a6491));*/
+  background: #3333aa;
+}
+
+.project_map .project_dots {
+  position: absolute;
+  right: 1em;
+  bottom: 0;
+}
+
+.project_map .project_title {
+  margin: 0 1em;
+}
+
+.project_map .project_title span {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5em;
+  text-shadow: 0 -0.1em 0.1em rgba(0, 0, 0, 0.5);
+  font-size: 2em;
+  -webkit-transform: scale(100%,100%);
+  white-space: nowrap;
+  color: rgba(240, 240, 240, 0.65);
+}
+
+.project_map .sparkline {
+  width: 100%;
 }
 
 .projects .red {

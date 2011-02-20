@@ -1,5 +1,7 @@
 class DashboardsController < ApplicationController
   def show
+    @no_header = true
+    
     if params[:tags]
       aggregate_projects = AggregateProject.find_tagged_with(params[:tags], :conditions => {:enabled => true})
       projects = Project.find_tagged_with(params[:tags], :conditions => {:enabled => true}, :include => :statuses)

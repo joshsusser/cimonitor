@@ -11,12 +11,23 @@
 <div class="projects_wrapper">
   <div class="project_map">
     <ul>
+<% 1.times do %>
       <% @projects.each do |p| %>
         <li class="<%= p.green? ? 'green' : (p.red? ? 'red' : 'blue') -%>">
           <div class="project_dots"><%#= render :partial => 'dashboards/history', :locals => {:project => p} %></div>
           <div class="project_title"><span><%= p.name %></span></div>
         </li>
       <% end %>
+<% end %>
+<% 5.times do %>
+      <% @projects[0..1].each do |p| %>
+        <li class="<%= p.green? ? 'green' : (p.red? ? 'red' : 'blue') -%>">
+          <div class="project_dots"><%#= render :partial => 'dashboards/history', :locals => {:project => p} %></div>
+          <div class="project_title"><span><%= p.name %></span></div>
+        </li>
+      <% end %>
+<% end %>
+      <!-- <li></li> -->
     </ul>
   </div>
   <div class="projects">

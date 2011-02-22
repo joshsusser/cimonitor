@@ -2,32 +2,32 @@ body {
   margin: 0;
   padding: 0;
   font-family: Verdana, Arial, sans-serif;
-  font-size: 12px; 
+  font-size: 12px;
   background: white;
 }
 
-body, p, li { 
-  color: black; 
+body, p, li {
+  color: black;
 }
 
 p {
   font-size: 1em;
   line-height: 1.6em;
   font-weight: normal;
-  margin: 0 0 1.6em 0; 
-  padding: 0; 
+  margin: 0 0 1.6em 0;
+  padding: 0;
 }
 
 /*
 =Headings
 */
 h1 {
-    font-family: Arial, Helvetica, sans-serif; 
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-  padding: 0; 
-  line-height: 1em; 
+  padding: 0;
+  line-height: 1em;
   margin: 0 0 5px;
   letter-spacing: -2px;
   font-weight: bold;
@@ -49,9 +49,9 @@ h1 {
 =Links
 */
 
-a, 
+a,
 a:link {
-  color: black; 
+  color: black;
 }
 
 a:hover {
@@ -101,7 +101,7 @@ a:hover {
 #title {
   padding-top: 10px;
   margin-left: 300px;
-  text-align: left; 
+  text-align: left;
 }
 
 .project {
@@ -115,7 +115,7 @@ a:hover {
 
 .project_visit {
   float: right;
-  font-size: smaller;  
+  font-size: smaller;
 }
 
 .project_name {
@@ -140,7 +140,7 @@ a:hover {
 
 .project_published_at {
   text-align: center;
-  font-size: 1em;  
+  font-size: 1em;
 }
 
 .project_red_since {
@@ -152,7 +152,7 @@ a:hover {
 
 .project_invalid {
   text-align: center;
-  font-size: 1em;  
+  font-size: 1em;
 }
 
 #top_right {
@@ -184,7 +184,7 @@ a:hover {
   overflow: hidden;
 }
 
-.message {  
+.message {
 }
 
 .smaller_text {
@@ -250,12 +250,14 @@ Form Errors
 
 /* new stuff */
 .page {
+  font-family: helvetica;
   font-size: 10px;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: #101010;
 }
 
 .projects {
@@ -268,12 +270,13 @@ Form Errors
   top: 0;
   bottom: 0;
   width: 30em;
+  padding: 8px;
 }
 
 .project_map ul {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;  
+  -webkit-box-align: stretch;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -285,9 +288,10 @@ Form Errors
   -webkit-box-flex: 1;
   position: relative;
   overflow: hidden;
+  -webkit-border-radius: 0.8em;
 }
 
-.project_map li:before {
+.project_map li .project_title:before {
   content: '';
   position: absolute;
   height: 50%;
@@ -295,27 +299,26 @@ Form Errors
   left: 0em;
   right: 0em;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0.1)));
-  -webkit-border-bottom-left-radius: 2em;  
-  -webkit-border-bottom-right-radius: 2em;  
+  -webkit-border-radius: 0.8em;
 }
 
 .project_map li + li {
-  border-top: 1px solid black;
+  margin-top: 2px;
 }
 
 .project_map .green {
 /*  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4aff59), to(#103713), color-stop(50%, #103713));*/
-  background: #33aa33;
+  background: #339933;
 }
 
 .project_map .red {
 /*  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff2a40), to(#450c12), color-stop(50%, #450c12));*/
-  background: #aa3333;
+  background: #993333;
 }
 
 .project_map .blue {
 /*  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#85a5cc), to(#4a6491), color-stop(50%, #4a6491));*/
-  background: #3333aa;
+  background: #3366cc;
 }
 
 .project_map .project_dots {
@@ -333,7 +336,7 @@ Form Errors
   top: 50%;
   margin-top: -0.5em;
   text-shadow: 0 -0.1em 0.1em rgba(0, 0, 0, 0.5);
-  font-size: 2em;
+  font-size: 150%;
   -webkit-transform: scale(100%,100%);
   white-space: nowrap;
   color: rgba(240, 240, 240, 0.65);
@@ -343,9 +346,27 @@ Form Errors
   width: 100%;
 }
 
-.projects .red {
-  color: red;
+.projects ul {
+  list-style: none;
 }
+
+.projects li {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 15px;
+  padding: 5px 10px;
+  font-family: helvetica;
+  font-size: 80px;
+  font-weight: bold;
+  height: 100px;
+  line-height: 100px;
+  background-color: #303030;
+  -webkit-border-radius: 10px;
+}
+
+.projects .red  { color: #ff3333; }
+.projects .blue { color: #3366ff; }
 
 .projects .blackue {
   color: cyan;
